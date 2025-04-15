@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add and Display Array Elements</title>
+</head>
+<body>
+    <input type="text" id="txt" name="data"/>
+    <button id="add">Add</button>
+    <button id="show">Display</button>
+    <button id="clear">Clear</button>
+    <button id="reset">Reset</button>
+    <hr>
+    <h4 id="arrData"></h6>
+    <script>
+       //procedure to add
+       const arr= [];
+       const addArr = document.getElementById("add");
+       addArr.addEventListener("click",addElement);
+
+       function addElement()
+       {
+       
+        if(document.getElementById("txt").value != '')
+       {
+        arr.push(document.getElementById("txt").value);
+        console.log(arr);
+       alert("New item added to Array");
+       }
+       }
+       //procedure to display
+       const disArr = document.getElementById("show");
+       disArr.addEventListener("click",showElement);
+       function showElement()
+       {
+        let e = "";
+       arr.forEach((elem,y) => {
+       e = e + `Element at ${y}: ${elem} <br>`;
+       });
+       document.getElementById("arrData").innerHTML =  e; 
+       }
+      //procedure to clear text
+      const cle = document.getElementById("clear");
+       cle.addEventListener("click",clearElement);
+       function clearElement()
+       {
+        document.getElementById("txt").value = null;
+       }
+        //procedure to reset text
+      const res = document.getElementById("reset");
+       res.addEventListener("click",resetElement);
+       function resetElement()
+       {
+       arr.length = 0;
+       console.log(arr);
+       }
+
+    </script>
+</body>
+</html>
